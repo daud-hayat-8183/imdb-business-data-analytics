@@ -1,66 +1,46 @@
 # 🎬 Predicting Movie Success: My BDA Final Semester Project
 
-Hi there! I'm Muhhammad Dawood Hayat, and welcome to my final semester Business Data Analytics (BDA) project for COMSATS University Islamabad. 
+Hi there! I'm Muhhammad Dawood Hayat, and welcome to my final semester Business Data Analytics (BDA) capstone project for COMSATS University Islamabad. 
 
-If you are reading this, you are looking at the exact moment a whole semester of learning actually clicked into place. I honestly can't believe this project is finally finished. Between the late-night coding sessions, wrestling with massive datasets that kept crashing my Colab environment, and figuring out how to actually deploy a web app—this has been an absolute rollercoaster. But it works, and I am so incredibly proud to share it with you.
+If you are reading this, you are looking at the culmination of months of hard work. Between the late-night coding sessions, wrestling with massive datasets that pushed my hardware to the limit, and figuring out how to actually deploy a machine learning web app from scratch—this project has been an absolute rollercoaster. It challenged everything I've learned, but it works beautifully, and I am incredibly proud to share it with you.
 
-I wanted to answer a question that has always fascinated me: **Can we actually predict if a movie will be a hit or a massive flop based just on its core data?** Let me walk you through what I built.
-
----
-
-## 🧠 What I Actually Did (The Journey)
-
-This wasn't just about throwing numbers into a machine to pass a class. It was a complete, start-to-finish data journey.
-* **Taming the Data:** I started with hundreds of thousands of raw records straight from IMDb. The data was a beast. I had to clean out missing values, drop extreme outliers (nobody is watching a 10-hour movie!), and format everything so my machine learning models could actually read it.
-* **Finding the Story (EDA):** This was the fun part. I created visualizations to find out what really makes a movie tick. Turns out, documentaries score surprisingly high, and there is definitely a "sweet spot" for how long a movie should be if you want a good rating.
-* **Training the Machine:** I built two distinct machine learning pipelines using Scikit-Learn. First, a Linear Regression model to predict the exact IMDb rating. Second, a Logistic Regression model to classify whether a movie is officially a "Hit" (a rating of 7.0 or higher).
-* **Bringing it to Life:** I didn't want my models just sitting in a Jupyter notebook where nobody could use them. So, I built a fully interactive web app using Streamlit. You can literally type in your own imaginary movie details and see if my model thinks it will survive the box office.
+I set out to answer a question that has always fascinated me: **Can we predict if a movie will be a hit or a massive flop based purely on its core data?** Let me walk you through exactly how I built the answer.
 
 ---
 
-## 📊 A Glimpse into the Insights & Live Deployment
+## 🧠 The Data Journey
 
-Here is a look at both the data analysis that drove the project, and the final Streamlit application built from it!
+This project wasn't just about throwing numbers into an algorithm to pass a class. It was a complete, start-to-finish data engineering pipeline.
 
-<table align="center">
-  <tr>
-    <td align="center">
-      <h3>📈 The Analytics Dashboard</h3>
-      <img src="eda_visualizations.png" alt="IMDb Data Analysis" width="400">
-    </td>
-    <td align="center">
-      <h3>🎬 The Live Project App</h3>
-      <img src="streamlit_app_screenshot.jpg" alt="Streamlit App Screenshot" width="400">
-    </td>
-  </tr>
-</table>
-
-*During my exploratory analysis, I uncovered several fascinating trends:*
-* Movies have a clear "sweet spot" for runtime when it comes to securing a high rating.
-* Documentaries consistently score higher on average compared to traditional feature films.
-* The average rating of movies actually fluctuates slightly depending on the decade, highlighting changing audience standards.
+1. **Taming the Beast:** I started with hundreds of thousands of raw records straight from the official IMDb database. The data was incredibly messy. I had to clean out missing values, filter out extreme outliers (because nobody is watching a 10-hour movie!), and format everything so my models could actually understand it.
+2. **Training the Machine:** I built two distinct machine learning pipelines using Scikit-Learn. 
+   * **Linear Regression:** To predict a movie's exact IMDb rating.
+   * **Logistic Regression:** To classify whether a movie is officially a "Hit" (a rating of 7.0 or higher).
 
 ---
 
-## ⚠️ How to Grade or Run My Code (Please Read!)
+## 📊 What the Data Told Me (Exploratory Data Analysis)
 
-Here is the catch: The raw IMDb data files are huge. They completely break GitHub's strict file size limits, so I couldn't upload them here. 
+Before making predictions, I needed to understand the story hidden inside the data. 
 
-**If you want to run my `.ipynb` notebook, here is exactly what you need to do:**
-1. Go to the official [IMDb Datasets page](https://datasets.imdbws.com/).
-2. Download these two specific compressed files: `title.basics.tsv.gz` and `title.ratings.tsv.gz`.
-3. Extract them on your computer.
-4. Rename them to `title.basics.tsv_2` and `title.ratings.tsv_2` (or just change the file names in the very first block of my code).
-5. Put them in the same folder as my notebook, or upload them to your Google Colab workspace.
-6. Open my notebook, hit **Run All**, and watch the magic happen!
+![IMDb Data Visualizations](eda_visualizations.png)
+
+*Through my analysis, I uncovered several fascinating truths about the film industry:*
+* **The Golden Runtime:** Movies have a very clear "sweet spot" for runtime when it comes to securing a high rating from audiences.
+* **Documentary Dominance:** Documentaries consistently score higher on average compared to traditional feature films.
+* **Generational Shifts:** The average rating of movies actually fluctuates depending on the decade, highlighting how audience standards change over time.
 
 ---
 
-## 🕹️ Try the Web App Yourself!
+## 🕹️ Bringing it to Life: The Web App
 
-I've included everything you need right here in this repository to run the app on your own computer (`app.py`, the `top_genres.pkl` list, and the `imdb_classification_pipeline.pkl` model).
+I didn't want my machine learning models just sitting inside a Jupyter notebook where nobody could use them. I wanted this to be a real, interactive tool. So, I built a fully functional web application using Streamlit. 
 
-To play with it:
+![Live Streamlit App](streamlit_app_screenshot.jpeg)
+
+You can literally type in your own imaginary movie details—choose the runtime, release year, and genres—and see if my model predicts it will survive the box office!
+
+**Want to try the app on your own computer?**
 1. Clone this repository to your laptop.
 2. Open your terminal or command prompt inside the folder.
 3. Type this exact command and hit enter: `streamlit run app.py`
@@ -68,8 +48,22 @@ To play with it:
 
 ---
 
+## ⚠️ How to Grade or Run My Code (Please Read!)
+
+There is one catch: The raw IMDb data files are absolutely massive. They completely break GitHub's strict file size limits, so I couldn't upload them directly to this repository. 
+
+**If you want to run my `.ipynb` notebook to see the code in action, here is exactly what you need to do:**
+1. Go to the official [IMDb Datasets page](https://datasets.imdbws.com/).
+2. Download these two specific compressed files: `title.basics.tsv.gz` and `title.ratings.tsv.gz`.
+3. Extract them on your computer.
+4. Rename them to `title.basics.tsv_2` and `title.ratings.tsv_2` (or simply update the file names in the very first block of my code).
+5. Put them in the exact same folder as my notebook, or upload them to your Google Colab workspace.
+6. Open my notebook, hit **Run All**, and watch the magic happen!
+
+---
+
 ## ❤️ Final Thoughts
 
-Finishing this capstone feels like closing a massive chapter of my life. Data analytics isn't just about math or code anymore; I've learned it's really about finding the human stories hidden inside millions of rows of text. 
+Finishing this capstone feels like closing a massive, transformative chapter of my academic life. Data analytics isn't just about math, spreadsheets, or code anymore; I have learned that it is really about finding the human stories hidden inside millions of rows of text. 
 
-Thank you so much for taking the time to visit my repository and look at my work. If you have any feedback or just want to chat about the project, I'd love to hear from you.
+Thank you so much for taking the time to visit my repository and look at my work. If you have any feedback, questions, or just want to chat about the project, I would love to hear from you!
